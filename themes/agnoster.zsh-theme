@@ -118,6 +118,15 @@ prompt_hg() {
 	fi
 }
 
+prompt_maildir() {
+  unsetopt nomatch 2>/dev/null
+  ls ~/Maildir/**/new/* >/dev/null 2>&1
+  if [[ $? -eq 0 ]] then
+    prompt_segment black red
+    echo -n "M"
+  fi
+}
+
 # Dir: current working directory
 prompt_dir() {
   prompt_segment blue black '%~'
@@ -142,6 +151,7 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_context
+  prompt_maildir
   prompt_dir
   prompt_git
   prompt_hg
