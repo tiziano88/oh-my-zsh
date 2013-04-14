@@ -122,8 +122,7 @@ prompt_maildir() {
   unsetopt nomatch 2>/dev/null
   ls ~/Maildir/**/new/* >/dev/null 2>&1
   if [[ $? -eq 0 ]] then
-    prompt_segment black red
-    echo -n "M"
+    prompt_segment black red "M"
   fi
 }
 
