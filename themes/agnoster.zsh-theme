@@ -120,7 +120,7 @@ prompt_hg() {
 
 prompt_maildir() {
   unsetopt nomatch 2>/dev/null
-  if [[ ! -z "$MAILDIR" ]] then
+  if [[ -n "$MAILDIR" ]] then
     ls $MAILDIR/**/new/* >/dev/null 2>&1
     if [[ $? -eq 0 ]] then
       prompt_segment black red "M"
